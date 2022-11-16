@@ -5,9 +5,11 @@ import java.util.Arrays;
 public class Homework1 {
     public static void main(String[] args) {
 
-        int[] testArray = {2, 6, 9, 3, 1, 0};
+        int[] testArray1 = {2, 6, 9, 3, 1, 0};
+        int[] testArray2 = {25, 65, 94, 33, 1, 0};
 
-        System.out.println(Arrays.toString(bubleSort(testArray)));
+        System.out.println(Arrays.toString(bubleSort(testArray1)));
+        System.out.println(Arrays.toString(selectionSort(testArray2)));
 
     }
 
@@ -26,5 +28,28 @@ public class Homework1 {
             }
 
             return arr;
+    }
+
+    public static int[] selectionSort(int[] arr)
+    {
+        int minPosition;
+
+        for (int i = 0; i < arr.length; i++)
+        {
+            minPosition = i;
+            for (int j = i+1; j < arr.length; j++)
+            {
+                if (arr[j] < arr[minPosition])
+                {
+                    minPosition = j;
+                }
+            }
+
+            int temp = arr[minPosition];
+            arr[minPosition] = arr[i];
+            arr[i] = temp;
+        }
+
+        return arr;
     }
 }
