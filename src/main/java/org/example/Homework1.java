@@ -7,9 +7,12 @@ public class Homework1 {
 
         int[] testArray1 = {2, 6, 9, 3, 1, 0};
         int[] testArray2 = {25, 65, 94, 33, 1, 0};
+        int[] testArray3 = {5, 75, 99, 2, 1, 0};
+
 
         System.out.println(Arrays.toString(bubleSort(testArray1)));
         System.out.println(Arrays.toString(selectionSort(testArray2)));
+        System.out.println(Arrays.toString(insertionSort(testArray3)));
 
     }
 
@@ -48,6 +51,24 @@ public class Homework1 {
             int temp = arr[minPosition];
             arr[minPosition] = arr[i];
             arr[i] = temp;
+        }
+
+        return arr;
+    }
+
+    public static int[] insertionSort(int arr[])
+    {
+        int n = arr.length;
+        for (int i = 1; i < n; ++i) {
+            int key = arr[i];
+            int j = i - 1;
+
+
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = key;
         }
 
         return arr;
